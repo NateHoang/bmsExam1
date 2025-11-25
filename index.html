@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BMS Exam 1</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI',
+          'Ubuntu', 'Droid Sans', sans-serif, 'Meiryo';
+        padding: 0 12px;
+      }
+
+      table {
+        border-collapse: collapse;
+        margin-bottom: 24px;
+        width: 100%;
+      }
+      table > thead > tr > th,
+      table > tbody > tr > td {
+        padding: 5px 10px;
+      }
+      table > thead > tr > th {
+        text-align: left;
+        border-bottom: 1px solid;
+      }
+      table > tbody > tr + tr > td {
+        border-top: 1px solid;
+      }
+
+      .tooltip {
+        position: relative;
+        cursor: pointer;
+        display: inline-block;
+      }
+      .tooltip img {
+        display: none;
+        position: absolute;
+        width: var(--tooltip-img-width, 300px);
+        height: auto;
+        border: 2px solid #f00;
+        background: #ffffcc;
+        padding: 5px;
+        z-index: 10;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(10px);
+        max-width: 90vw; /* ✅ prevents image from exceeding viewport width */
+        max-height: 80vh; /* ✅ keeps image inside visible page vertically */
+        object-fit: contain;
+        box-sizing: border-box;
+      }
+
+      .tooltip[data-position='below'] img {
+        bottom: auto;
+        top: 100%;
+      }
+
+      .tooltip:hover img {
+        display: block;
+        /* Reposition if too close to top or bottom of viewport */
+        top: auto;
+        bottom: auto;
+      }
+
+      .blurred {
+        filter: blur(3px);
+        transition: filter 0.3s ease;
+      }
+
+      table td:not(:first-child),
+      table td li {
+        cursor: pointer;
+      }
+
+      summary {
+        font-size: 22px;
+        font-weight: bold;
+        cursor: pointer;
+        margin: 16px 0;
+      }
+
+      details {
+        border: 2px solid #444;
+        border-radius: 8px;
+        padding: 10px;
+        background: #f9f9f9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="blur-buttons">
+      <button id="blurAll">Blur All</button>
+      <button id="unblurAll">Unblur All</button>
+    </div>
+    <!-- Lecture 1 -->
+    <details>
+      <summary>Lecture 1: The Nervous System Anatomy and Physiology</summary>
+    </details>
+    <br />
+    <!-- Lecture 2 -->
+    <details>
+      <summary>Lecture 2: CNS and PNS</summary>
+      <my-header>Meningitis Overview</my-header>
+      <table>
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Definition</strong></td>
+            <td>
+              <strong>Meningitis</strong> — an inflammatory condition affecting
+              the <strong>leptomeninges</strong>.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Types</strong></td>
+            <td>
+              <strong>Acute</strong> (viral or bacterial) and
+              <strong>Chronic</strong> (often fungal).
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Common pathogens</strong></td>
+            <td>
+              <ul>
+                <li>
+                  <strong>Bacterial:</strong>
+                  <em>Streptococcus pneumoniae</em> (most common),
+                  <em>Neisseria meningitidis</em>,
+                  <em>Mycobacterium tuberculosis</em>,
+                  <em>Staphylococcus aureus</em>.
+                </li>
+                <li>
+                  <strong>Viral:</strong>
+                  <strong>Enteroviruses</strong> (coxsackie, echovirus),
+                  <strong>Herpes simplex virus</strong>.
+                </li>
+                <li>
+                  <strong>Fungal:</strong> <strong>Cryptococcus</strong> spp.
+                  (immunocompromised patients).
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Pathophysiology / Routes of entry</strong></td>
+            <td>
+              1. <strong>Direct spread</strong> — through skin, nose, via
+              anatomical defects or skull fractures.<br />
+              2. <strong>Hematogenous spread</strong> — nasopharyngeal
+              colonization → bloodstream → choroid plexus/CSF.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Risk factors</strong></td>
+            <td>
+              <li>V: <strong>Vaccine refusal</strong> (bacterial)</li>
+              <li>I: <strong>immunosuppression</strong></li>
+              <li>
+                M: <strong> Medical conditions </strong> or devices (malignancy,
+                VP shunt, HIV, splenectomy, IV drug use, renal failure).
+              </li>
+              <li>
+                E:
+                <strong> Exposure </strong>
+                /travel to endemic areas
+              </li>
+              <li>A: <strong>Age</strong> (infants &amp; elderly)</li>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Clinical features / Symptoms</strong></td>
+            <td>
+              <li>Classic triad:</li>
+              <ul>
+                <li><strong>Fever</strong>,</li>
+                <li><strong>Headache</strong>,</li>
+                <li>
+                  <strong>Neck stiffness (nuchal rigidity)</strong>
+                </li>
+              </ul>
+              May also have
+              <strong>photophobia</strong> or <strong>phonophobia</strong>.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Diagnosis</strong></td>
+            <td>
+              Clinical assessment + <strong>lumbar puncture</strong> to evaluate
+              <strong>CSF clarity, pressure, culture, WBCs, protein</strong>.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Complications</strong></td>
+            <td>
+              <li>
+                <strong>Death</strong>
+              </li>
+              <li>
+                <strong>Seizures</strong>
+              </li>
+              <li>
+                <strong>Hydrocephalus</strong> (build up of pressure of CSF)
+              </li>
+              <li><strong>Hearing loss</strong></li>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Prevention</strong></td>
+            <td>
+              <strong>Vaccination</strong> for bacterial meningitis:
+              <ul>
+                <li><strong>Meningococcal</strong> for meningitidis</li>
+                <li><strong>Hib</strong> for H. influenzae B</li>
+                <li>
+                  <strong>Pneumococcal</strong> for Streptococcus pneumoniae
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Treatment</strong></td>
+            <td>
+              <ul>
+                <li>
+                  <strong>Bacterial:</strong> give
+                  <strong>Dexamethasone</strong> prior to antibiotics (to reduce
+                  leptomeningeal injury) then appropriate antibiotics.
+                </li>
+                <li>
+                  <strong>Viral/fungal/other:</strong> specific
+                  antimicrobial/antiviral/antifungal therapy and supportive care
+                  as indicated.
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Acute vs Chronic note</strong></td>
+            <td>
+              <li>Acute forms are usually bacterial/viral</li>
+              <li>
+                Chronic forms are commonly fungal (especially in
+                immunocompromised).
+              </li>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- Table 2 - Strokes -->
+      <my-header>Stroke Overview</my-header>
+      <table>
+        <thead>
+          <tr>
+            <th>Stroke type</th>
+            <th>Definition / key features</th>
+            <th>Common causes / risk factors</th>
+            <th>Typical symptoms</th>
+            <th>Management / notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Ischemic stroke</strong></td>
+            <td>
+              <strong
+                >Reduced or interrupted blood flow to brain → neuronal ATP
+                depletion and necrosis → accounts for ~85% of strokes.</strong
+              >
+            </td>
+            <td>
+              Thrombus formation
+              <li>emboli from elsewhere</li>
+              <li>carotid disease</li>
+              <li>atrial fibrillation</li>
+              <li>hypertension</li>
+              <li>diabetes</li>
+              <li>hyperlipidemia</li>
+              <li>smoking</li>
+              <li>hypercoagulable states.</li>
+            </td>
+            <td>
+              <li>Weakness</li>
+              <li>numbness</li>
+              <li>facial droop</li>
+              <li>slurred speech</li>
+              <li>language disturbance</li>
+              <li>vision changes</li>
+              <li>incoordination (depends on area).</li>
+            </td>
+            <td>
+              <strong>Acute:</strong> thrombolysis / endovascular therapy when
+              indicated. <strong>Chronic:</strong> secondary prevention
+              (anticoagulants if cardioembolic
+              <li>antiplatelets</li>
+              <li>antihypertensives</li>
+              <li>statins</li>
+              <li>rehab).</li>
+            </td>
+          </tr>
+
+          <tr>
+            <td><strong>Thrombotic stroke (a subtype of ischemic)</strong></td>
+            <td>
+              <strong
+                >Occlusion due to thrombus formed within cerebral vessels → may
+                be preceded by TIAs.</strong
+              >
+            </td>
+            <td>
+              <li>Atherosclerotic plaque in cerebral/large vessels</li>
+              <li>
+                small-vessel lipohyalinosis. Risk factors as for ischemic
+                stroke.
+              </li>
+            </td>
+            <td>
+              <li><strong>D</strong>: dizziness</li>
+              <li><strong>C</strong>: confusion</li>
+              <li><strong>H</strong>: headache</li>
+              <li><strong>I</strong>: Incoordination</li>
+              <li><strong>L</strong>: Language/slurred speech</li>
+              <li><strong>L</strong>: limb paralysis</li>
+              <li><strong>S</strong>: Small transient events</li>
+            </td>
+            <td>
+              May be preceded by TIAs
+              <li>acute reperfusion strategies when eligible</li>
+              <li>address local vessel disease and risk factor control.</li>
+            </td>
+          </tr>
+
+          <tr>
+            <td><strong>Embolic stroke (a subtype of ischemic)</strong></td>
+            <td>
+              <strong
+                >Arterial occlusion from embolus originating elsewhere (heart
+                <li>proximal arteries) causing sudden ischemia.</li></strong
+              >
+            </td>
+            <td>
+              Atrial fibrillation
+              <li>recent myocardial infarction</li>
+              <li>valvular disease</li>
+              <li>carotid plaque</li>
+              <li>paradoxical embolus.</li>
+            </td>
+            <td>
+              <li><strong>D</strong>: Difficulty speaking</li>
+              <li><strong>W</strong>: weakness/numbness</li>
+              <li><strong>T</strong>: Temporary paralysis</li>
+              <li><strong>B</strong>: Blurred Vision</li>
+              <li><strong>N</strong>: Nausea</li>
+              <li><strong>S</strong>: Slurred speech</li>
+              <br />
+              <li>Don't Wait — Treat Bad Neurological Signs</li>
+            </td>
+            <td>
+              Identify and treat embolic source (anticoagulation for AF if
+              appropriate)
+              <li>acute reperfusion if eligible.</li>
+            </td>
+          </tr>
+
+          <tr>
+            <td><strong>Systemic hypoperfusion</strong></td>
+            <td>
+              <strong
+                >Global cerebral hypoperfusion from systemic circulatory failure
+                (not a focal vessel occlusion).</strong
+              >
+            </td>
+            <td>
+              Arrhythmias
+              <li>reduced cardiac output</li>
+              <li>severe bleeding</li>
+              <li>shock.</li>
+            </td>
+            <td>
+              Diffuse cerebral dysfunction
+              <li>can cause watershed infarcts</li>
+              <li>variable focal signs depending on severity.</li>
+            </td>
+            <td>
+              Treat underlying systemic cause (cardiac support
+              <li>volume/blood replacement).</li>
+            </td>
+          </tr>
+
+          <tr>
+            <td><strong>Hemorrhagic stroke</strong></td>
+            <td>
+              <strong
+                >Bleeding into brain or subarachnoid space → mass effect
+                <li>edema</li>
+                <li>and tissue injury → &lt;20% of strokes.</li></strong
+              >
+            </td>
+            <td>
+              Chronic hypertension
+              <li>bleeding disorders</li>
+              <li>drug use (e.g., amphetamines</li>
+              <li>cocaine)</li>
+              <li>vascular malformations</li>
+              <li>aneurysm rupture.</li>
+            </td>
+            <td>
+              Sudden severe headache (especially SAH)
+              <li>vomiting</li>
+              <li>decreased consciousness</li>
+              <li>focal deficits</li>
+              <li>rapid neurologic deterioration.</li>
+            </td>
+            <td>
+              Management is supportive and surgical when indicated (control
+              blood pressure
+              <li>neurosurgical evacuation</li>
+              <li>aneurysm repair/endovascular treatment).</li>
+            </td>
+          </tr>
+
+          <tr>
+            <td><strong>Subarachnoid hemorrhage (SAH)</strong></td>
+            <td>
+              <strong
+                >Bleeding into the subarachnoid space
+                <li>
+                  often from ruptured aneurysm → presents with "thunderclap"
+                  headache.
+                </li></strong
+              >
+            </td>
+            <td>
+              Ruptured cerebral aneurysm
+              <li>vascular malformations.</li>
+            </td>
+            <td>
+              Sudden severe headache
+              <li>blurred vision</li>
+              <li>loss of consciousness</li>
+              <li>nuchal rigidity may occur.</li>
+            </td>
+            <td>
+              Emergency neurosurgical / endovascular repair
+              <li>manage intracranial pressure and complications.</li>
+            </td>
+          </tr>
+
+          <tr>
+            <td><strong>Intracerebral hemorrhage (ICH)</strong></td>
+            <td>
+              <strong
+                >Bleeding into brain parenchyma forming a hematoma with high
+                morbidity/mortality.</strong
+              >
+            </td>
+            <td>
+              Chronic/uncontrolled hypertension
+              <li>coagulopathy</li>
+              <li>illicit stimulant use</li>
+              <li>vascular malformations.</li>
+            </td>
+            <td>
+              Rapid onset headache
+              <li>vomiting</li>
+              <li>decreased consciousness</li>
+              <li>hemiplegia</li>
+              <li>severity depends on hematoma size/location.</li>
+            </td>
+            <td>
+              Urgent supportive care
+              <li>blood pressure control</li>
+              <li>possible surgical evacuation depending on location/size.</li>
+            </td>
+          </tr>
+
+          <tr>
+            <td><strong>Transient Ischemic Attack (TIA)</strong></td>
+            <td>
+              <strong
+                >Transient neurologic dysfunction from brief ischemia without
+                infarction
+                <li>high short-term stroke risk.</li></strong
+              >
+            </td>
+            <td>
+              Same vascular risk factors as stroke (age
+              <li>diabetes</li>
+              <li>HTN</li>
+              <li>smoking</li>
+              <li>prior stroke/TIA).</li>
+            </td>
+            <td>
+              Brief weakness/numbness
+              <li>speech disturbance</li>
+              <li>visual symptoms that resolve quickly.</li>
+            </td>
+            <td>
+              Urgent evaluation and secondary prevention
+              (antiplatelet/anticoagulant
+              <li>risk-factor modification) TIA is a warning sign.</li>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </details>
+    <br />
+    <!-- Lecture 3 -->
+    <details>
+      <summary>Lecture 3: PNS Neurotransmitter</summary>
+    </details>
+
+    <style>
+      /* same as before */
+      .blurred {
+        filter: blur(10px);
+        transition: filter 0.3s ease;
+      }
+
+      /* Make clickable cursor for td */
+      table td:not(:first-child) {
+        cursor: pointer;
+      }
+
+      /* li inside blurred td will inherit blur from parent */
+      table td.blurred li {
+        filter: inherit;
+      }
+
+      .blur-buttons {
+        text-align: center;
+        margin-bottom: 16px;
+      }
+      .blur-buttons button {
+        margin: 0 5px;
+        padding: 5px 12px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .blur-section li {
+        cursor: pointer;
+        margin-bottom: 6px;
+      }
+
+      /* Blur effect same as td */
+      .blur-section li.blurred {
+        filter: blur(10px);
+        transition: filter 0.3s ease;
+      }
+
+      /* Override for bold text so it always stays clear */
+      .blur-section li.blurred b {
+        filter: none !important;
+      }
+
+      .blur-section .blur-target {
+        cursor: pointer;
+        display: inline-block;
+      }
+
+      .blurred {
+        filter: blur(10px);
+        transition: filter 0.3s ease;
+      }
+    </style>
+
+    <script>
+      // === BLUR LOGIC ===
+      document.addEventListener('DOMContentLoaded', () => {
+        // Select table cells + blur-target spans
+        const blurCells = document.querySelectorAll(
+          'table td:not(:first-child), .blur-section .blur-target'
+        );
+
+        blurCells.forEach((cell) => {
+          cell.addEventListener('click', () => {
+            cell.classList.toggle('blurred');
+          });
+        });
+
+        // Keyboard shortcut (space toggles all)
+        document.addEventListener('keydown', (event) => {
+          if (event.code === 'Space') {
+            const allBlurred = Array.from(blurCells).every((cell) =>
+              cell.classList.contains('blurred')
+            );
+            if (allBlurred) {
+              blurCells.forEach((cell) => cell.classList.remove('blurred'));
+            } else {
+              blurCells.forEach((cell) => cell.classList.add('blurred'));
+            }
+            event.preventDefault();
+          }
+        });
+
+        // Buttons
+        document.getElementById('blurAll').addEventListener('click', () => {
+          blurCells.forEach((cell) => cell.classList.add('blurred'));
+        });
+        document.getElementById('unblurAll').addEventListener('click', () => {
+          blurCells.forEach((cell) => cell.classList.remove('blurred'));
+        });
+      });
+
+      // === CUSTOM HEADER ELEMENT ===
+      class MyHeader extends HTMLElement {
+        connectedCallback() {
+          const text = this.innerHTML.trim() || 'Section Title';
+
+          this.innerHTML = `
+        <div
+          style="
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            --tooltip-img-width: 400px;
+          "
+        >
+          ${text}
+        </div>
+        <br />
+      `;
+        }
+      }
+
+      // Important: name must contain a hyphen
+      customElements.define('my-header', MyHeader);
+    </script>
+  </body>
+</html>
